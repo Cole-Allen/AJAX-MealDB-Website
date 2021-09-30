@@ -25,6 +25,8 @@ header {
   justify-content: space-evenly;
 }
 
+/* Recipe View */
+
 .recipe {
   justify-content: center;
 }
@@ -53,7 +55,9 @@ header {
   margin-bottom: 10px;
 }
 
-.source h3 {
+.source a {
+  text-decoration: none;
+  font-size: 2rem;
   color: rgb(131, 12, 12);
 }
 
@@ -93,9 +97,8 @@ header {
 }
 
 .recipe-ingredients td {
-  width: 50%;
   padding: 10px 0;
-  border-bottom: 2px solid rgb(163, 163, 163);
+  border-bottom: 2px solid rgb(202, 202, 202);
 }
 
 .ingredient {
@@ -119,6 +122,51 @@ header {
   padding-bottom: 40px;
   margin-bottom: 40px;
   border-bottom: 1px solid gray;
+}
+
+/* Categories View */
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categories a {
+  font-size: 3rem;
+  margin: 50px 0;
+  flex-basis: 50%;
+  color: rgb(131, 12, 12);
+}
+
+/* Recipe card */
+
+.recipe-card {
+  padding: 20px 60px;
+  background: rgb(255, 255, 255);
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(71, 0, 0, 0.137);
+}
+
+.recipe-card img {
+  flex-basis: 10%;
+}
+
+.recipe-card h3 {
+  padding-left: 50px;
+  font-size: 3rem;
+  text-align: left;
+  flex-basis: 80%;
+}
+
+.recipe-card i {
+  text-align: right;
+  font-size: 3rem;
+  flex-basis: 10%;
 }
 
 @media screen and (max-width: 1290px) {
