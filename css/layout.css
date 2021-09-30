@@ -7,8 +7,7 @@
 img {
   display: block;
   object-fit: cover;
-
-  /* width: 100%; */
+  width: 100%;
 }
 
 .header-container,
@@ -20,7 +19,6 @@ img {
 }
 
 .header-container {
-  max-width: 1600px;
   align-items: center;
 }
 
