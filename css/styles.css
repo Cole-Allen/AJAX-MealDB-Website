@@ -1,0 +1,80 @@
+body {
+  font-family: sans-serif;
+}
+
+header {
+  background: rgb(160, 63, 63);
+  color: white;
+}
+
+.header-logo {
+  padding: 0 40px;
+}
+
+.nav-bar {
+  flex-basis: 80%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recipe {
+  justify-content: center;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.title i {
+  font-size: 3rem;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+}
+
+.recipe-image {
+  display: flex;
+  justify-content: center;
+  flex-basis: 50%;
+  margin-bottom: 100px;
+}
+
+.recipe-ingredients-container {
+  flex-basis: 50%;
+  margin-bottom: 100px;
+}
+
+.recipe-ingredients-container h2 {
+  margin-bottom: 25px;
+}
+
+.recipe-ingredients {
+  padding: 0 100px;
+}
+
+.recipe-ingredients table {
+  border-collapse: collapse;
+}
+
+.recipe-ingredients td {
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 2px solid rgb(163, 163, 163);
+}
+
+.ingredient {
+  width: 50%;
+  text-align: left;
+}
+
+.ingredient-amount {
+  text-align: right;
+}
+
+.recipe-instructions h2 {
+  margin-bottom: 20px;
+}

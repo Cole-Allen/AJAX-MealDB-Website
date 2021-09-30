@@ -1,3 +1,35 @@
 * {
   box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+
+  /* width: 100%; */
+}
+
+.header-container,
+.body-container,
+.recipe {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-container {
+  max-width: 1600px;
+  align-items: center;
+}
+
+.body-container {
+  margin-top: 50px;
+  max-width: 1290px;
+  justify-content: center;
+}
+
+.row {
+  flex-basis: 100%;
 }
