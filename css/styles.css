@@ -4,6 +4,7 @@ body h1 {
 }
 
 body {
+  background: rgb(241, 241, 241);
   font-family: 'Raleway', sans-serif;
   font-size: 1.5em;
 }
@@ -75,24 +76,29 @@ header {
 
 .recipe-ingredients-container h2 {
   margin-bottom: 25px;
+  padding-left: 100px;
 }
 
 .recipe-ingredients {
-  padding: 0 100px;
+  width: 100%;
+  padding-left: 100px;
 }
 
 .recipe-ingredients table {
   border-collapse: collapse;
 }
 
-.recipe-ingredients td {
+.recipe-ingredients tr {
   width: 100%;
+}
+
+.recipe-ingredients td {
+  width: 50%;
   padding: 10px 0;
   border-bottom: 2px solid rgb(163, 163, 163);
 }
 
 .ingredient {
-  width: 50%;
   text-align: left;
 }
 
@@ -105,11 +111,14 @@ header {
 }
 
 .recipe-instructions h2 {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .recipe-instructions p {
   line-height: 3rem;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid gray;
 }
 
 @media screen and (max-width: 1290px) {
