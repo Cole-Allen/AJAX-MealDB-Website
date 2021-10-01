@@ -19,9 +19,9 @@ function getRandomRecipe() {
 }
 
 function viewRecipe(recipeJSON) {
+  console.log(recipeJSON);
   $recipeName.textContent = recipeJSON.meals[0].strMeal;
   if (recipeJSON.meals[0].strSource) {
-    $recipeSource.textContent = recipeJSON.meals[0].strSource.slice(12);
     $recipeSource.setAttribute('href', recipeJSON.meals[0].strSource);
   }
   $recipeImage.setAttribute('src', recipeJSON.meals[0].strMealThumb);
