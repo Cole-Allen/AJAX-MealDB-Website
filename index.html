@@ -20,20 +20,20 @@
         <img src="images/favicon.ico">
       </div>
       <div class="nav-bar">
-        <a>Random</a>
-        <a>Categories</a>
-        <a>Favorites</a>
-        <a>Search</a>
+        <a data-target="random">Random</a>
+        <a data-target="categories">Categories</a>
+        <a data-target="favorites">Favorites</a>
+        <a data-target="search">Search</a>
       </div>
     </div>
   </header>
 
   <main>
     <div class="body-container">
-      <div class="view recipe row">
+      <div class="recipe row" data-view="recipe">
         <div class="title row">
           <h1>Recipe Name</h1>
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart heart"></i>
         </div>
         <div class="source">
           <a target="_blank">Source</a>
@@ -56,7 +56,17 @@
         </div>
 
       </div>
+      <div class="view row favorites hidden" data-view="favorites">
+          <h1 class="row">Favorites</h1>
+          <div class="card-list" name="card-list">
+            <div class="recipe-card row">
+              <img src="images/favicon.ico">
+              <h3>Testing</h3>
+              <i class="far fa-heart"></i>
+            </div>
+          </div>
 
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>

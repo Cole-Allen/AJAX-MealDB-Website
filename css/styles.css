@@ -46,8 +46,7 @@ header {
 .title i {
   font-size: 3rem;
   padding: 0 20px;
-
-  /* position: absolute; */
+  cursor: pointer;
   right: 0;
 }
 
@@ -71,6 +70,7 @@ header {
   justify-content: center;
   flex-basis: 50%;
   margin-bottom: 100px;
+  align-items: flex-start;
 }
 
 .recipe-ingredients-container {
@@ -154,6 +154,7 @@ header {
 
 .recipe-card img {
   flex-basis: 10%;
+  width: 10%;
 }
 
 .recipe-card h3 {
