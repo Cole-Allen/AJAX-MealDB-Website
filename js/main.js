@@ -33,7 +33,6 @@ $navBar.addEventListener('click', function (event) {
 
 $heartIcon.addEventListener('click', function (event) {
   loadFavorites();
-  console.log('reload favs');
   if (!data.favorites.includes(data.currentRecipe)) {
     data.favorites.push(data.currentRecipe);
     $heartIcon.classList.remove('far');
@@ -65,14 +64,19 @@ function loadFavorites() {
   clearCards($cardList);
   for (var i = data.favorites.length - 1; i > -1; i--) {
     var $recipeCard = document.createElement('div');
-    $recipeCard.setAttribute('data-id', i);
+    $recipeCard.setAttribute('data-id', data.favorites[i]);
     $cardList.appendChild($recipeCard);
 
     $recipeCard.addEventListener('click', function (event) {
+      var indexOf = data.favorites.indexOf(event.currentTarget.getAttribute('data-id'));
       if (event.target.getAttribute('data-icon') === 'heart') {
-        console.log(event.currentTarget);
-        event.currentTarget.querySelector('.fa-heart').classList.remove('fas');
-        event.currentTarget.querySelector('.fa-heart').classList.add('far');
+        if (data.favorites.includes(event.currentTarget.getAttribute('data-id'))) {
+          data.favorites.splice(indexOf, 1);
+        } else {
+          data.favorites.push(event.currentTarget.getAttribute('data-id'));
+        }
+        event.currentTarget.querySelector('.fa-heart').classList.toggle('fas');
+        event.currentTarget.querySelector('.fa-heart').classList.toggle('far');
       }
     });
     getRecipebyNumber(data.favorites[i], true, $recipeCard);
@@ -97,7 +101,6 @@ function getRecipebyNumber(number, forFav, cardList) {
 }
 
 function viewRecipe(recipeJSON) {
-  console.log(recipeJSON);
 
   if (data.favorites.includes(recipeJSON.meals[0].idMeal)) {
     $heartIcon.classList.remove('far');

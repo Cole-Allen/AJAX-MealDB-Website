@@ -15,6 +15,18 @@ header {
   color: white;
 }
 
+i {
+  transition: color 0.4s ease;
+}
+
+.fas {
+  color: rgb(195, 0, 0);
+}
+
+.far {
+  color: black;
+}
+
 .header-logo {
   padding: 0 40px;
 }
