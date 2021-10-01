@@ -6,8 +6,13 @@
 
 img {
   display: block;
-  object-fit: cover;
+  object-fit: scale-down;
   width: 100%;
+  border-radius: 10px;
+}
+
+a {
+  cursor: pointer;
 }
 
 .hidden {
