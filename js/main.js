@@ -4,15 +4,12 @@ var $recipeImage = document.querySelector('.recipe-image img');
 var $recipeIngredients = document.querySelector('.recipe-ingredients tbody');
 var $recipeInstructions = document.querySelector('.recipe-instructions');
 
-// var $categoryView = document.querySelector('.categories');
-
 getRandomRecipe(); // Will change this so it displays the currentRecipe from data
 
 function getRandomRecipe() {
   var recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
     var recipeJSON = JSON.parse(this.responseText);
-    // console.log(recipeJSON);
     viewRecipe(recipeJSON);
     data.currentRecipe = recipeJSON.meals[0].idMeal;
 
@@ -21,42 +18,10 @@ function getRandomRecipe() {
   recipe.send();
 }
 
-// function getCategories() {
-//   var categories = new XMLHttpRequest();
-//   categories.addEventListener('load', function (event) {
-//     var categoriesJSON = JSON.parse(this.responseText);
-//     // console.log(categoriesJSON);
-
-//     for (var i = 0; i < categoriesJSON.categories.length; i++) {
-//       var $categoryLink = document.createElement('a');
-//       $categoryLink.textContent = categoriesJSON.categories[i].strCategory;
-
-//       $categoryView.appendChild($categoryLink);
-//     }
-
-//   });
-//   categories.open('GET', 'https://www.themealdb.com/api/json/v1/1/categories.php');
-//   categories.send();
-// }
-
-// function getCategorieRecipes(category) {
-//   var categorieRecipes = new XMLHttpRequest();
-//   categorieRecipes.addEventListener('load', function (event) {
-//     var categorieRecipesJSON = JSON.parse(this.responseText);
-//     // console.log(categorieRecipesJSON);
-//     var $listItemTesting = document.createElement('a');
-//     $listItemTesting.textContent = categorieRecipesJSON.meals[0].strMeal;
-//     $categoryView.appendChild($listItemTesting);
-
-//   });
-//   categorieRecipes.open('GET', 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category);
-//   categorieRecipes.send();
-// }
-
 function viewRecipe(recipeJSON) {
   $recipeName.textContent = recipeJSON.meals[0].strMeal;
   if (recipeJSON.meals[0].strSource) {
-    $recipeSource.textContent = recipeJSON.meals[0].strSource.slice(12); // change to a link and clean up url
+    $recipeSource.textContent = recipeJSON.meals[0].strSource.slice(12);
     $recipeSource.setAttribute('href', recipeJSON.meals[0].strSource);
   }
   $recipeImage.setAttribute('src', recipeJSON.meals[0].strMealThumb);
@@ -91,7 +56,3 @@ function getIngredients(recipeIngredient, recipeAmount) {
   return $recipeRow;
 
 }
-
-// function createMealCard() {
-
-// }
