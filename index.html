@@ -4,15 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
+  <script src="https://kit.fontawesome.com/70432710ae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="images/favicon.ico">
+      </div>
+      <div class="nav-bar">
+        <a>Random</a>
+        <a>Categories</a>
+        <a>Favorites</a>
+        <a>Search</a>
+      </div>
+    </div>
   </header>
+
   <main>
+    <div class="body-container">
+      <div class="view recipe row">
+        <div class="title row">
+          <h1>Recipe Name</h1>
+          <!-- <i class="far fa-heart"></i>  This needs to be changed -->
+        </div>
+        <div class="source">
+          <h2>Source</h2>
+          <a target="_blank"></a>
+        </div>
+        <div class="image-ingredients row">
+          <div class="recipe-image">
+            <img src="images/favicon.ico">
+          </div>
+          <div class="recipe-ingredients-container">
+            <h2>Ingredients</h2>
+            <table class="recipe-ingredients">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="recipe-instructions row">
+          <h2>Instructions</h2>
+        </div>
+
+      </div>
+      <div class="view categories row hidden">
+        <h1 class="row">Categories</h1>
+      </div>
+      <div class="view categorie-recipes row hidden">
+        <h1 class="row">(Category) Recipes</h1>
+        <div class="recipe-card row">
+          <img src="images/favicon.ico">
+          <h3>Testing</h3>
+          <i class="far fa-heart"></i>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
