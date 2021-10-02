@@ -12,6 +12,12 @@ var $recipeInstructions = document.querySelector('.recipe-instructions');
 
 var $heartIcon = document.querySelector('.heart');
 
+var $searchForm = document.forms['search-form'];
+var $searchBar = $searchForm['search-bar'];
+var $searchButton = $searchForm['search-button'];
+
+console.log($searchButton);
+
 $navBar.addEventListener('click', function (event) {
   for (var i = 0; i < $dataViews.length; i++) {
     $recipeView.classList.add('hidden');
@@ -26,7 +32,8 @@ $navBar.addEventListener('click', function (event) {
 
     } else if (event.target.getAttribute('data-target') === 'random') {
       getRandomRecipe();
-      data.currentView = event.target.getAttribute('data-target');
+      data.currentView = 'recipe';
+      return;
     }
   }
 });
@@ -119,7 +126,11 @@ function viewRecipe(recipeJSON) {
     $recipeSource.setAttribute('href', recipeJSON.meals[0].strSource);
   }
   $recipeImage.setAttribute('src', recipeJSON.meals[0].strMealThumb);
+  while ($recipeIngredients.firstChild) {
+    $recipeIngredients.removeChild($recipeIngredients.firstChild);
+  }
   for (var j = 1; j < 21; j++) {
+
     if (recipeJSON.meals[0]['strIngredient' + j]) {
       $recipeIngredients.appendChild(getIngredients(recipeJSON.meals[0]['strIngredient' + j], recipeJSON.meals[0]['strMeasure' + j]));
     }
