@@ -16,7 +16,10 @@ var $searchForm = document.forms['search-form'];
 var $searchBar = $searchForm['search-bar'];
 var $searchButton = $searchForm['search-button'];
 
-console.log($searchButton);
+$searchButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  console.log('right');
+});
 
 $navBar.addEventListener('click', function (event) {
   for (var i = 0; i < $dataViews.length; i++) {
@@ -105,6 +108,16 @@ function getRecipebyNumber(number, forFav, cardList) {
   recipe.open('GET', 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + number);
   recipe.send();
 
+}
+
+function getRecipebyName(name) {
+  var recipe = new XMLHttpRequest();
+  recipe.addEventListener('load', function (event) {
+    var recipeJSON = JSON.parse(this.responseText);
+
+  });
+  recipe.open('GET', 'https://www.themealdb.com/api/json/v1/1/search.php?s=' + name);
+  recipe.send();
 }
 
 function viewRecipe(recipeJSON) {
