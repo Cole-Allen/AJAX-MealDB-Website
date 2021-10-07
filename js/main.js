@@ -3,6 +3,7 @@ const $navBar = document.querySelector('.nav-bar');
 const $dataViews = document.querySelectorAll('.view');
 const $recipeView = document.querySelector('.recipe');
 const $favoritesView = document.querySelector('.favorites');
+const $listView = document.querySelector('.list-recipes');
 
 const $recipeName = document.querySelector('.title h1');
 const $recipeSource = document.querySelector('.source a');
@@ -79,6 +80,17 @@ function loadFavorites() {
   }
 }
 
+function loadList(listArray) {
+  console.log(listArray);
+  const $cardList = $listView.querySelector('.card-list');
+  while ($cardList.firstChild) {
+    $cardList.removeChild($cardList.firstChild);
+  }
+  for (let i = 0; i < listArray.meals.length; i++) {
+    $cardList.appendChild(createRecipeCard(listArray.meals[i]));
+  }
+}
+
 function getRecipebyNumber(number, forFav, cardList) {
   const recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
@@ -102,10 +114,11 @@ function getRecipebyName(name) {
     console.log(recipeJSON);
     if (recipeJSON.meals && recipeJSON.meals.length > 1) {
       console.log('multiple found');
+      loadList(recipeJSON);
       switchViews('list');
     } else if (recipeJSON.meals && recipeJSON.meals.length === 1) {
       console.log('one found');
-      switchViews('recipe');
+      viewRecipe(recipeJSON);
     } else {
       console.log('none found');
     }
@@ -181,7 +194,12 @@ function createRecipeCard(recipeMeal) {
 
   $recipeCard.setAttribute('class', 'recipe-card row');
   $recipeCardImage.setAttribute('src', recipeMeal.strMealThumb);
-  $recipeCardHeart.setAttribute('class', 'fas fa-heart');
+  if (data.favorites.includes(recipeMeal.idMeal)) {
+    $recipeCardHeart.setAttribute('class', 'fas fa-heart');
+  } else {
+    $recipeCardHeart.setAttribute('class', 'far fa-heart');
+  }
+
   $recipeCardHeart.setAttribute('data-icon', 'heart');
   $recipeCardTitle.textContent = recipeMeal.strMeal;
 
