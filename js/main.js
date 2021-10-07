@@ -23,23 +23,7 @@ $searchButton.addEventListener('click', function (event) {
 });
 
 $navBar.addEventListener('click', function (event) {
-  for (let i = 0; i < $dataViews.length; i++) {
-    $recipeView.classList.add('hidden');
-    $dataViews[i].classList.add('hidden');
-    if (event.target.getAttribute('data-target') === $dataViews[i].getAttribute('data-view')) {
-      $dataViews[i].classList.remove('hidden');
-
-      if ($dataViews[i].getAttribute('data-view') === 'favorites') {
-        loadFavorites();
-      }
-      data.currentView = $dataViews[i].getAttribute('data-view');
-
-    } else if (event.target.getAttribute('data-target') === 'random') {
-      getRandomRecipe();
-      data.currentView = 'recipe';
-      return;
-    }
-  }
+  switchViews(event.target.getAttribute('data-target'));
 });
 
 $heartIcon.addEventListener('click', function (event) {
@@ -118,8 +102,10 @@ function getRecipebyName(name) {
     console.log(recipeJSON);
     if (recipeJSON.meals && recipeJSON.meals.length > 1) {
       console.log('multiple found');
+      switchViews('list');
     } else if (recipeJSON.meals && recipeJSON.meals.length === 1) {
       console.log('one found');
+      switchViews('recipe');
     } else {
       console.log('none found');
     }
@@ -156,6 +142,9 @@ function viewRecipe(recipeJSON) {
     if (recipeJSON.meals[0]['strIngredient' + j]) {
       $recipeIngredients.appendChild(getIngredients(recipeJSON.meals[0]['strIngredient' + j], recipeJSON.meals[0]['strMeasure' + j]));
     }
+  }
+  while ($recipeInstructions.firstChild) {
+    $recipeInstructions.removeChild($recipeInstructions.firstChild);
   }
   const instructions = recipeJSON.meals[0].strInstructions.split('\n');
   for (let l = 0; l < instructions.length; l++) {
@@ -210,8 +199,18 @@ function clearCards(list) {
 }
 
 function switchViews(view) {
+  data.currentView = view;
   for (let i = 0; i < $dataViews.length; i++) {
-    console.log($dataViews[i]);
+    const dataView = $dataViews[i].getAttribute('data-view');
     $dataViews[i].classList.add('hidden');
+    if ($dataViews[i].getAttribute('data-view') === view) {
+      console.log(dataView);
+      $dataViews[i].classList.remove('hidden');
+      if (dataView === 'favorites') {
+        loadFavorites();
+      } else if (dataView === 'recipe') {
+        getRandomRecipe();
+      }
+    }
   }
 }
