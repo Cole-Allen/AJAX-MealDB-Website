@@ -69,7 +69,6 @@ function loadFavorites() {
 }
 
 function loadList(listArray) {
-  console.log(listArray);
   const $cardList = $listView.querySelector('.card-list');
   while ($cardList.firstChild) {
     $cardList.removeChild($cardList.firstChild);
@@ -99,16 +98,11 @@ function getRecipebyName(name) {
   const recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
     const recipeJSON = JSON.parse(this.responseText);
-    console.log(recipeJSON);
     if (recipeJSON.meals && recipeJSON.meals.length > 1) {
-      console.log('multiple found');
       loadList(recipeJSON);
       switchViews('list');
     } else if (recipeJSON.meals && recipeJSON.meals.length === 1) {
-      console.log('one found');
       viewRecipe(recipeJSON);
-    } else {
-      console.log('none found');
     }
 
   });
@@ -149,6 +143,9 @@ function viewRecipe(recipeJSON) {
   }
   const instructions = recipeJSON.meals[0].strInstructions.split('\n');
   for (let l = 0; l < instructions.length; l++) {
+    if (instructions[l] === '') {
+      continue;
+    }
     const $recipeStep = document.createElement('p');
     $recipeStep.setAttribute('class', 'recipe-step');
     $recipeStep.textContent = instructions[l];
@@ -223,7 +220,6 @@ function switchViews(view) {
     const dataView = $dataViews[i].getAttribute('data-view');
     $dataViews[i].classList.add('hidden');
     if ($dataViews[i].getAttribute('data-view') === view) {
-      console.log(dataView);
       $dataViews[i].classList.remove('hidden');
       if (dataView === 'favorites') {
         loadFavorites();
