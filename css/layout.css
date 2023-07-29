@@ -6,7 +6,7 @@
 
 img {
   display: block;
-  object-fit: scale-down;
+  object-fit: cover;
   width: 100%;
   border-radius: 10px;
 }
@@ -29,6 +29,8 @@ a {
 
 .header-container {
   align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
 }
 
 .body-container {
