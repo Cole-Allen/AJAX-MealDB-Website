@@ -143,7 +143,9 @@ function viewRecipe(recipeJSON) {
   }
   const instructions = recipeJSON.meals[0].strInstructions.split('\n');
   for (let l = 0; l < instructions.length; l++) {
+    console.log(instructions[l]);
     if (instructions[l] === '') {
+      console.log('skip!');
       continue;
     }
     const $recipeStep = document.createElement('p');
