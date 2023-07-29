@@ -15,8 +15,17 @@ header {
   color: white;
 }
 
+h2 {
+  margin-bottom: 50px;
+}
+
 i {
   transition: color 0.4s ease;
+}
+
+label {
+  font-family: 'Lobster', sans-serif;
+  font-size: 3em;
 }
 
 .fas {
@@ -154,6 +163,7 @@ i {
 /* Recipe card */
 
 .recipe-card {
+  cursor: pointer;
   padding: 20px 60px;
   background: rgb(255, 255, 255);
   margin: 50px 0;
@@ -180,6 +190,29 @@ i {
   text-align: right;
   font-size: 3rem;
   flex-basis: 10%;
+}
+
+/* Search */
+
+.search-bar {
+  font-family: 'Raleway', sans-serif;
+  margin-top: 50px;
+  padding: 15px;
+  width: 100%;
+  font-size: 3rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.search-button {
+  font-family: 'Raleway', sans-serif;
+  margin-top: 50px;
+  padding: 20px 100px;
+  font-size: 2rem;
+  border: none;
+  background: rgb(160, 63, 63);
+  color: white;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1290px) {
