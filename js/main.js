@@ -1,3 +1,4 @@
+// Select elements from the page
 const $navBar = document.querySelector('.nav-bar');
 
 const $dataViews = document.querySelectorAll('.view');
@@ -17,16 +18,19 @@ const $searchForm = document.forms['search-form'];
 const $searchBar = $searchForm['search-bar'];
 const $searchButton = $searchForm['search-button'];
 
+// Query the recipie API
 $searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   getRecipebyName($searchBar.value);
   $searchForm.reset();
 });
 
+// Switch view depending on the tab clicked
 $navBar.addEventListener('click', function (event) {
   switchViews(event.target.getAttribute('data-target'));
 });
 
+// Add recipie to favorites
 $heartIcon.addEventListener('click', function (event) {
   loadFavorites();
   if (!data.favorites.includes(data.currentRecipe)) {
@@ -41,8 +45,10 @@ $heartIcon.addEventListener('click', function (event) {
 
 });
 
-switchViews(data.currentView); // Will change this so it displays the currentRecipe from data
+// Will change this so it displays the currentRecipe from data
+switchViews(data.currentView);
 
+// Query the API for a random recipe
 function getRandomRecipe() {
   const recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
@@ -55,6 +61,7 @@ function getRandomRecipe() {
   recipe.send();
 }
 
+// Load favorites list from data
 function loadFavorites() {
   const $cardList = $favoritesView.querySelector('.card-list');
   clearCards($cardList);
@@ -78,6 +85,7 @@ function loadList(listArray) {
   }
 }
 
+// Query API for specific recipe based on its number
 function getRecipebyNumber(number, forFav, cardList) {
   const recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
@@ -94,6 +102,7 @@ function getRecipebyNumber(number, forFav, cardList) {
 
 }
 
+// Query API for specific recipe based on its name
 function getRecipebyName(name) {
   const recipe = new XMLHttpRequest();
   recipe.addEventListener('load', function (event) {
@@ -110,8 +119,8 @@ function getRecipebyName(name) {
   recipe.send();
 }
 
+// View the recipe by parsing the API's JSON
 function viewRecipe(recipeJSON) {
-
   if (data.favorites.includes(recipeJSON.meals[0].idMeal)) {
     $heartIcon.classList.remove('far');
     $heartIcon.classList.add('fas');
@@ -143,9 +152,7 @@ function viewRecipe(recipeJSON) {
   }
   const instructions = recipeJSON.meals[0].strInstructions.split('\n');
   for (let l = 0; l < instructions.length; l++) {
-    console.log(instructions[l]);
     if (instructions[l] === '') {
-      console.log('skip!');
       continue;
     }
     const $recipeStep = document.createElement('p');
@@ -155,6 +162,7 @@ function viewRecipe(recipeJSON) {
   }
 }
 
+// Creates an ingredient item for a recipe
 function getIngredients(recipeIngredient, recipeAmount) {
   const $recipeRow = document.createElement('tr');
   const $recipeIngredient = document.createElement('td');
@@ -173,6 +181,7 @@ function getIngredients(recipeIngredient, recipeAmount) {
 
 }
 
+// Creates a quick recipe card
 function createRecipeCard(recipeMeal) {
   const $recipeCard = document.createElement('div');
   const $recipeCardImage = document.createElement('img');
@@ -210,12 +219,14 @@ function createRecipeCard(recipeMeal) {
   return $recipeCard;
 }
 
+// Clear all cards
 function clearCards(list) {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
 }
 
+// Switch views by hiding and unhiding elements on the page
 function switchViews(view) {
   data.currentView = view;
   for (let i = 0; i < $dataViews.length; i++) {
