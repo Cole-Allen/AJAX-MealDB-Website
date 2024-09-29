@@ -1,5 +1,6 @@
 // Select elements from the page
-const $navBar = document.querySelector('.nav-bar');
+const $navBar = document.querySelector('.header-container');
+// const $navBar = document.querySelector('.nav-bar');
 
 const $dataViews = document.querySelectorAll('.view');
 const $recipeView = document.querySelector('.recipe');
@@ -27,6 +28,9 @@ $searchButton.addEventListener('click', function (event) {
 
 // Switch view depending on the tab clicked
 $navBar.addEventListener('click', function (event) {
+  if (!event.target.getAttribute('data-target')) {
+    return;
+  }
   switchViews(event.target.getAttribute('data-target'));
 });
 

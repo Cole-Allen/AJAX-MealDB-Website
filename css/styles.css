@@ -71,6 +71,10 @@ label {
 
 /* Search */
 
+.search-form {
+  padding: 0 20px;
+}
+
 .search-bar {
   font-family: 'Raleway', sans-serif;
   margin-top: 50px;
@@ -103,15 +107,8 @@ label {
 @media screen and (max-width: 768px) {
   .nav-bar {
     display: none;
-  }
 
-  .recipe-image {
-    flex-basis: 100%;
-    margin-bottom: 20px;
-  }
-
-  .recipe-ingredients-container {
-    flex-basis: 100%;
+    /* Need to add hamburger menu for mobile */
   }
 }
 

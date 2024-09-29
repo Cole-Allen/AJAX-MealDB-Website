@@ -17,9 +17,9 @@
 <body>
   <header>
     <div class="header-container">
-      <div class="header-logo">
-        <img src="images/favicon.ico">
-      </div>
+      <a class="header-logo">
+        <img data-target="search" src="images/favicon.ico">
+      </a>
       <div class="nav-bar">
         <a data-target="recipe">Random</a>
         <a data-target="categories">Categories</a>
@@ -33,10 +33,10 @@
     <div class="body-container">
       <div class="view recipe row" data-view="recipe">
         <div class="title row">
+          <i class="far fa-heart heart"></i>
           <h1>Recipe Name</h1>
         </div>
         <div class="source">
-          <i class="far fa-heart heart"></i>
           <a target="_blank">Source</a>
         </div>
         <div class="image-ingredients row">
