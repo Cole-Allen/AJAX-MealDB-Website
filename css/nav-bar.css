@@ -1,0 +1,16 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-bar > a {
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    display: none;
+
+    /* Need to add hamburger menu for mobile */
+  }
+}
