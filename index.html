@@ -6,22 +6,26 @@
   <title>AJAX Project</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
   <script src="https://kit.fontawesome.com/70432710ae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/recipe-card.css">
+  <link rel="stylesheet" href="css/recipe.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/nav-bar.css">
+  <link rel="stylesheet" href="css/categories.css">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <div class="header-logo">
-        <img src="images/favicon.ico">
-      </div>
+      <a class="header-logo">
+        <img data-target="search" src="images/favicon.ico">
+      </a>
       <div class="nav-bar">
         <a data-target="recipe">Random</a>
-        <a data-target="categories">Categories</a>
+        <!-- <a data-target="categories">Categories</a> -->
         <a data-target="favorites">Favorites</a>
         <a data-target="search">Search</a>
       </div>
@@ -32,8 +36,8 @@
     <div class="body-container">
       <div class="view recipe row" data-view="recipe">
         <div class="title row">
-          <h1>Recipe Name</h1>
           <i class="far fa-heart heart"></i>
+          <h1>Recipe Name</h1>
         </div>
         <div class="source">
           <a target="_blank">Source</a>
